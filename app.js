@@ -27,14 +27,31 @@ const pool = mysql.createPool({
 // Test database connection
 pool.getConnection((err, connection) => {
     if (err) {
-        console.log('Database Error:', err);
-        return;
+        console.error('Database Error:', err);
+        process.exit(1); // Exit if we can't connect to the database
     }
     console.log('Connected to MySQL database');
     connection.release();
 });
 
 const app = express();
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+});
+
+// Unhandled promise rejection handler
+process.on('unhandledRejection', (err) => {
+    console.error('Unhandled Promise Rejection:', err);
+});
+
+// Uncaught exception handler
+process.on('uncaughtException', (err) => {
+    console.error('Uncaught Exception:', err);
+    process.exit(1);
+});
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -246,5 +263,7 @@ if (shuffleDates !== undefined) {
 }
 
 app.listen(port, () => {
-  console.log('Server running on port ' + port);
+    console.log(`Server running on port ${port}`);
+    console.log('Environment:', process.env.NODE_ENV);
+    console.log('Database host:', config.database.host);
 });

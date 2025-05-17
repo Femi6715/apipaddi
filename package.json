@@ -1,6 +1,9 @@
 {
   "name": "angular-coupon",
   "version": "0.0.0",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node app",
     "serve": "node app",
@@ -23,17 +26,8 @@
     "helmet": "^3.18.0",
     "jsonwebtoken": "*",
     "moment": "2.23.0",
-    "mongodb": "^3.1.11",
-    "mongodb-cron": "1.4.0",
-    "mongoose": "*",
     "mysql2": "^3.14.1",
     "nexmo": "2.4.1",
-    "ng2-date-countdown": "1.0.2",
-    "ng4-loading-spinner": "1.2.3",
-    "ng6-countdown": "1.0.2",
-    "ngx-countdown-timer": "0.1.9",
-    "ngx-loading": "3.0.1",
-    "ngx-socket-io": "2.1.1",
     "node-cron": "2.0.3",
     "node-fetch": "2.3.0",
     "nodemailer": "^5.1.1",
@@ -44,10 +38,7 @@
     "pug": "2.0.3",
     "querystring": "0.2.0",
     "request": "2.88.0",
-    "rxjs": "6.3.3",
-    "rxjs-compat": "6.3.3",
-    "socket.io": "2.2.0",
-    "zone.js": "~0.8.26"
+    "socket.io": "2.2.0"
   },
   "devDependencies": {
     "socket.io-client": "^2.2.0",

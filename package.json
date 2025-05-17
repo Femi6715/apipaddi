@@ -26,6 +26,7 @@
     "mongodb": "^3.1.11",
     "mongodb-cron": "1.4.0",
     "mongoose": "*",
+    "mysql2": "^3.14.1",
     "nexmo": "2.4.1",
     "ng2-date-countdown": "1.0.2",
     "ng4-loading-spinner": "1.2.3",

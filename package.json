@@ -7,7 +7,8 @@
   "scripts": {
     "start": "node app",
     "serve": "node app",
-    "watch": "nodemon app"
+    "watch": "nodemon app",
+    "migrate": "node scripts/run-migration.js"
   },
   "private": true,
   "dependencies": {

@@ -1,0 +1,1 @@
+﻿SHOW TABLES FROM Padilotto_wordrushof;

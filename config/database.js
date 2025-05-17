@@ -25,11 +25,19 @@ module.exports = {
         database: process.env.DB_NAME || 'Padilotto_wordrushof',
         port: process.env.DB_PORT || 3307,
         pool: {
-            max: 5,
-            min: 0,
+            max: 10,
+            min: 2,
             acquire: 30000,
-            idle: 10000
-        }
+            idle: 10000,
+            waitForConnections: true,
+            connectionLimit: 10,
+            queueLimit: 0
+        },
+        connectTimeout: 60000, // 60 seconds
+        acquireTimeout: 60000, // 60 seconds
+        timeout: 60000, // 60 seconds
+        enableKeepAlive: true,
+        keepAliveInitialDelay: 10000
     },
     secret: process.env.JWT_SECRET || 'yourSuperSecretKey'
 }

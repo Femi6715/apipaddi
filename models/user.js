@@ -2,16 +2,21 @@ const mysql = require('mysql2');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
-// Create MySQL connection pool
+// Create MySQL connection pool with improved settings
 const pool = mysql.createPool({
     host: config.database.host,
     user: config.database.user,
     password: config.database.password,
     database: config.database.database,
     port: config.database.port,
-    waitForConnections: true,
-    connectionLimit: config.database.pool.max,
-    queueLimit: 0
+    waitForConnections: config.database.pool.waitForConnections,
+    connectionLimit: config.database.pool.connectionLimit,
+    queueLimit: config.database.pool.queueLimit,
+    connectTimeout: config.database.connectTimeout,
+    acquireTimeout: config.database.acquireTimeout,
+    timeout: config.database.timeout,
+    enableKeepAlive: config.database.enableKeepAlive,
+    keepAliveInitialDelay: config.database.keepAliveInitialDelay
 });
 
 // Convert pool to use promises
